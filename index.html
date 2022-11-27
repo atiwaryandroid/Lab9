@@ -102,6 +102,58 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    errorBtns[0].addEventListener('click', function(){console.log("Console Log Test")});
+    errorBtns[1].addEventListener('click', function(){console.error("Console Error Test")});
+    errorBtns[2].addEventListener('click', function(){console.count("Console Count Test")});
+    errorBtns[3].addEventListener('click', function(){console.warn("Console Warn Test")});
+    let x = 5;
+    let y = 5;
+    errorBtns[4].addEventListener('click', function(){console.assert(x + y == 11,"Console Assert Test")});
+    errorBtns[5].addEventListener('click', function(){console.clear()});
+    var test1  = { Location: "Console", Test_Type:"Dir" };
+    errorBtns[6].addEventListener('click', function(){console.dir(test1)});
+    errorBtns[7].addEventListener('click', function(){console.dirxml(document.querySelector("form"))});
+    errorBtns[8].addEventListener('click', function(){console.group();console.log("Console Group Test")});
+    errorBtns[9].addEventListener('click', function(){console.groupEnd()});
+    errorBtns[10].addEventListener('click', function(){console.table(["Console","Table","Test"])});
+    errorBtns[11].addEventListener('click', function(){console.time()});
+    errorBtns[12].addEventListener('click', function(){console.timeEnd()});
+    function my1Function() {
+      my2Function();
+    }
+    function my2Function() {
+      console.trace();
+    }
+    errorBtns[13].addEventListener('click', function(){my1Function()});
+    errorBtns[14].addEventListener('click', function(){throw(ReferenceError)});
+
+    try{
+      aintgonnawork();
+    }
+    catch(err){
+      console.log("aintgonnawork is not a function");
+    }
+    finally{
+      console.log("finally checking");
+    }
+
+  class ValidationError extends Error {
+    constructor(message) {
+      super(message);
+      this.name = "CustomError";
+    } 
+  }
+
+  function test() {
+    throw new ValidationError("CustomErrorCheck!");
+  }
+
+  try {
+    test();
+  } catch(err) {
+    console.log(err.message); 
+    console.log(err.name); 
+  }
   </script>
 </body>
 
